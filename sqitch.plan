@@ -1,3 +1,6 @@
 %syntax-version=1.0.0
 %project=database-message-store
 %uri=https://github.com/josephchoe/database-message_store
+
+schemas/public 2020-08-29T12:43:42Z Joseph Choe <joseph@josephchoe.com> # Public schema removed
+schemas/message_store 2020-08-29T12:43:56Z Joseph Choe <joseph@josephchoe.com> # Message store schema
