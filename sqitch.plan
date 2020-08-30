@@ -17,3 +17,4 @@ functions/stream_version [schemas/message_store tables/messages] 2020-08-30T04:0
 functions/write_message [schemas/message_store tables/messages functions/acquire_lock functions/stream_version] 2020-08-30T04:37:44Z Joseph Choe <joseph@josephchoe.com> # Function write_message
 functions/get_category_messages [schemas/message_store tables/messages types/message functions/category functions/is_category functions/cardinal_id] 2020-08-30T04:42:37Z Joseph Choe <joseph@josephchoe.com> # Function get_category_messages
 functions/get_stream_messages [schemas/message_store tables/messages types/message functions/is_category] 2020-08-30T04:47:54Z Joseph Choe <joseph@josephchoe.com> # Function get_stream_messages
+functions/get_last_stream_message [schemas/message_store tables/messages types/message] 2020-08-30T04:50:58Z Joseph Choe <joseph@josephchoe.com> # Function get_last_stream_message
