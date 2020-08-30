@@ -21,3 +21,4 @@ functions/get_last_stream_message [schemas/message_store tables/messages types/m
 functions/message_store_version [schemas/message_store] 2020-08-30T05:00:08Z Joseph Choe <joseph@josephchoe.com> # Function message_store_version
 indexes/messages_id [schemas/message_store tables/messages] 2020-08-30T05:15:22Z Joseph Choe <joseph@josephchoe.com> # Index messages_id
 indexes/messages_stream [schemas/message_store tables/messages] 2020-08-30T05:24:36Z Joseph Choe <joseph@josephchoe.com> # Index messages_stream
+indexes/messages_category [schemas/message_store tables/messages functions/category] 2020-08-30T05:28:13Z Joseph Choe <joseph@josephchoe.com> # Index messages_category
