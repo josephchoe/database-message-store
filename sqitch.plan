@@ -14,3 +14,4 @@ functions/id [schemas/message_store] 2020-08-30T02:54:31Z Joseph Choe <joseph@jo
 functions/cardinal_id [schemas/message_store functions/id] 2020-08-30T02:57:06Z Joseph Choe <joseph@josephchoe.com> # Function cardinal_id
 functions/acquire_lock [schemas/message_store functions/hash_64 functions/category] 2020-08-30T02:59:05Z Joseph Choe <joseph@josephchoe.com> # Function acquire_lock
 functions/stream_version [schemas/message_store tables/messages] 2020-08-30T04:05:28Z Joseph Choe <joseph@josephchoe.com> # Function stream_version
+functions/write_message [schemas/message_store tables/messages functions/acquire_lock functions/stream_version] 2020-08-30T04:37:44Z Joseph Choe <joseph@josephchoe.com> # Function write_message
