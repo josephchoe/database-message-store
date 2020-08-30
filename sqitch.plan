@@ -15,3 +15,4 @@ functions/cardinal_id [schemas/message_store functions/id] 2020-08-30T02:57:06Z 
 functions/acquire_lock [schemas/message_store functions/hash_64 functions/category] 2020-08-30T02:59:05Z Joseph Choe <joseph@josephchoe.com> # Function acquire_lock
 functions/stream_version [schemas/message_store tables/messages] 2020-08-30T04:05:28Z Joseph Choe <joseph@josephchoe.com> # Function stream_version
 functions/write_message [schemas/message_store tables/messages functions/acquire_lock functions/stream_version] 2020-08-30T04:37:44Z Joseph Choe <joseph@josephchoe.com> # Function write_message
+functions/get_category_messages [schemas/message_store tables/messages types/message functions/category functions/is_category functions/cardinal_id] 2020-08-30T04:42:37Z Joseph Choe <joseph@josephchoe.com> # Function get_category_messages
