@@ -4,3 +4,4 @@
 
 schemas/public 2020-08-29T12:43:42Z Joseph Choe <joseph@josephchoe.com> # Public schema removed
 schemas/message_store 2020-08-29T12:43:56Z Joseph Choe <joseph@josephchoe.com> # Message store schema
+extensions/pgcrypto [schemas/message_store] 2020-08-29T14:11:15Z Joseph Choe <joseph@josephchoe.com> # Extension pgcrypto
