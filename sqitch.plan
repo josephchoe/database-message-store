@@ -13,3 +13,4 @@ functions/is_category [schemas/message_store] 2020-08-30T01:48:44Z Joseph Choe <
 functions/id [schemas/message_store] 2020-08-30T02:54:31Z Joseph Choe <joseph@josephchoe.com> # Function id
 functions/cardinal_id [schemas/message_store functions/id] 2020-08-30T02:57:06Z Joseph Choe <joseph@josephchoe.com> # Function cardinal_id
 functions/acquire_lock [schemas/message_store functions/hash_64 functions/category] 2020-08-30T02:59:05Z Joseph Choe <joseph@josephchoe.com> # Function acquire_lock
+functions/stream_version [schemas/message_store tables/messages] 2020-08-30T04:05:28Z Joseph Choe <joseph@josephchoe.com> # Function stream_version
