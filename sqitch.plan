@@ -11,3 +11,4 @@ functions/hash_64 [schemas/message_store] 2020-08-30T00:42:49Z Joseph Choe <jose
 functions/category [schemas/message_store] 2020-08-30T01:13:18Z Joseph Choe <joseph@josephchoe.com> # Function category
 functions/is_category [schemas/message_store] 2020-08-30T01:48:44Z Joseph Choe <joseph@josephchoe.com> # Function is_category
 functions/id [schemas/message_store] 2020-08-30T02:54:31Z Joseph Choe <joseph@josephchoe.com> # Function id
+functions/cardinal_id [schemas/message_store functions/id] 2020-08-30T02:57:06Z Joseph Choe <joseph@josephchoe.com> # Function cardinal_id
