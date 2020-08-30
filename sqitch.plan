@@ -8,3 +8,4 @@ extensions/pgcrypto [schemas/message_store] 2020-08-29T14:11:15Z Joseph Choe <jo
 tables/messages [schemas/message_store extensions/pgcrypto] 2020-08-29T21:15:54Z Joseph Choe <joseph@josephchoe.com> # Messages table
 types/message [schemas/message_store] 2020-08-29T22:31:58Z Joseph Choe <joseph@josephchoe.com> # Message type
 functions/hash_64 [schemas/message_store] 2020-08-30T00:42:49Z Joseph Choe <joseph@josephchoe.com> # Function hash_64
+functions/category [schemas/message_store] 2020-08-30T01:13:18Z Joseph Choe <joseph@josephchoe.com> # Function category
