@@ -25,3 +25,4 @@ indexes/messages_category [schemas/message_store tables/messages functions/categ
 views/stream_summary [schemas/message_store tables/messages] 2020-08-30T05:37:08Z Joseph Choe <joseph@josephchoe.com> # View stream_summary
 views/type_summary [schemas/message_store tables/messages] 2020-08-30T05:40:39Z Joseph Choe <joseph@josephchoe.com> # View type_summary
 views/stream_type_summary [schemas/message_store tables/messages] 2020-08-30T05:42:42Z Joseph Choe <joseph@josephchoe.com> # View stream_type_summary
+views/type_stream_summary [schemas/message_store tables/messages] 2020-08-30T05:44:31Z Joseph Choe <joseph@josephchoe.com> # View type_stream_summary
