@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/hash_64 to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 
 BEGIN;
@@ -15,7 +16,9 @@ BEGIN
   return _hash;
 END
 $$ LANGUAGE plpgsql
-IMMUTABLE;
+IMMUTABLE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.hash_64(varchar) OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.hash_64(varchar) FROM PUBLIC;
 

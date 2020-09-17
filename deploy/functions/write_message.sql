@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/write_message to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 -- requires: tables/messages
 -- requires: functions/acquire_lock
@@ -78,7 +79,9 @@ BEGIN
   RETURN _next_position;
 END;
 $$ LANGUAGE plpgsql
-VOLATILE;
+VOLATILE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.write_message(varchar, varchar, varchar, jsonb, jsonb, bigint) OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.write_message(varchar, varchar, varchar, jsonb, jsonb, bigint) FROM PUBLIC;
 

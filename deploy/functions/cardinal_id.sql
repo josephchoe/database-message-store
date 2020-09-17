@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/cardinal_id to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 -- requires: functions/id
 
@@ -21,7 +22,9 @@ BEGIN
   RETURN SPLIT_PART(_id, '+', 1);
 END;
 $$ LANGUAGE plpgsql
-IMMUTABLE;
+IMMUTABLE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.cardinal_id(varchar) OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.cardinal_id(varchar) FROM PUBLIC;
 

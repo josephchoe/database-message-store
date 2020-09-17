@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/message_store_version to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 
 BEGIN;
@@ -10,7 +11,9 @@ BEGIN
   RETURN '1.2.3';
 END;
 $$ LANGUAGE plpgsql
-VOLATILE;
+VOLATILE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.message_store_version() OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.message_store_version() FROM PUBLIC;
 

@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/is_category to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 
 BEGIN;
@@ -16,7 +17,9 @@ BEGIN
   RETURN TRUE;
 END;
 $$ LANGUAGE plpgsql
-IMMUTABLE;
+IMMUTABLE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.is_category(varchar) OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.is_category(varchar) FROM PUBLIC;
 

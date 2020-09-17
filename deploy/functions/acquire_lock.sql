@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/acquire_lock to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 -- requires: functions/hash_64
 -- requires: functions/category
@@ -28,7 +29,9 @@ BEGIN
   RETURN _category_name_hash;
 END;
 $$ LANGUAGE plpgsql
-VOLATILE;
+VOLATILE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.acquire_lock(varchar) OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.acquire_lock(varchar) FROM PUBLIC;
 

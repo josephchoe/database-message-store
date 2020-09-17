@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/stream_version to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 -- requires: tables/messages
 
@@ -22,7 +23,9 @@ BEGIN
   RETURN _stream_version;
 END;
 $$ LANGUAGE plpgsql
-VOLATILE;
+VOLATILE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.stream_version(varchar) OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.stream_version(varchar) FROM PUBLIC;
 

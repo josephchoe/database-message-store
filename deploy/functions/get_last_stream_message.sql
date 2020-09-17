@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/get_last_stream_message to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 -- requires: tables/messages
 -- requires: types/message
@@ -41,7 +42,9 @@ BEGIN
   RETURN QUERY EXECUTE _command USING get_last_stream_message.stream_name;
 END;
 $$ LANGUAGE plpgsql
-VOLATILE;
+VOLATILE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.get_last_stream_message(varchar) OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.get_last_stream_message(varchar) FROM PUBLIC;
 

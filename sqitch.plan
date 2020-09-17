@@ -8,18 +8,18 @@ schemas/message_store 2020-08-29T12:43:56Z Joseph Choe <joseph@josephchoe.com> #
 extensions/pgcrypto [schemas/message_store] 2020-08-29T14:11:15Z Joseph Choe <joseph@josephchoe.com> # Extension pgcrypto
 tables/messages [schemas/message_store extensions/pgcrypto] 2020-08-29T21:15:54Z Joseph Choe <joseph@josephchoe.com> # Messages table
 types/message [schemas/message_store] 2020-08-29T22:31:58Z Joseph Choe <joseph@josephchoe.com> # Message type
-functions/hash_64 [schemas/message_store] 2020-08-30T00:42:49Z Joseph Choe <joseph@josephchoe.com> # Function hash_64
-functions/category [schemas/message_store] 2020-08-30T01:13:18Z Joseph Choe <joseph@josephchoe.com> # Function category
-functions/is_category [schemas/message_store] 2020-08-30T01:48:44Z Joseph Choe <joseph@josephchoe.com> # Function is_category
-functions/id [schemas/message_store] 2020-08-30T02:54:31Z Joseph Choe <joseph@josephchoe.com> # Function id
-functions/cardinal_id [schemas/message_store functions/id] 2020-08-30T02:57:06Z Joseph Choe <joseph@josephchoe.com> # Function cardinal_id
-functions/acquire_lock [schemas/message_store functions/hash_64 functions/category] 2020-08-30T02:59:05Z Joseph Choe <joseph@josephchoe.com> # Function acquire_lock
-functions/stream_version [schemas/message_store tables/messages] 2020-08-30T04:05:28Z Joseph Choe <joseph@josephchoe.com> # Function stream_version
-functions/write_message [schemas/message_store tables/messages functions/acquire_lock functions/stream_version] 2020-08-30T04:37:44Z Joseph Choe <joseph@josephchoe.com> # Function write_message
-functions/get_category_messages [schemas/message_store tables/messages types/message functions/category functions/is_category functions/cardinal_id] 2020-08-30T04:42:37Z Joseph Choe <joseph@josephchoe.com> # Function get_category_messages
-functions/get_stream_messages [schemas/message_store tables/messages types/message functions/is_category] 2020-08-30T04:47:54Z Joseph Choe <joseph@josephchoe.com> # Function get_stream_messages
-functions/get_last_stream_message [schemas/message_store tables/messages types/message] 2020-08-30T04:50:58Z Joseph Choe <joseph@josephchoe.com> # Function get_last_stream_message
-functions/message_store_version [schemas/message_store] 2020-08-30T05:00:08Z Joseph Choe <joseph@josephchoe.com> # Function message_store_version
+functions/hash_64 [roles/owner schemas/message_store] 2020-08-30T00:42:49Z Joseph Choe <joseph@josephchoe.com> # Function hash_64
+functions/category [roles/owner schemas/message_store] 2020-08-30T01:13:18Z Joseph Choe <joseph@josephchoe.com> # Function category
+functions/is_category [roles/owner schemas/message_store] 2020-08-30T01:48:44Z Joseph Choe <joseph@josephchoe.com> # Function is_category
+functions/id [roles/owner schemas/message_store] 2020-08-30T02:54:31Z Joseph Choe <joseph@josephchoe.com> # Function id
+functions/cardinal_id [roles/owner schemas/message_store functions/id] 2020-08-30T02:57:06Z Joseph Choe <joseph@josephchoe.com> # Function cardinal_id
+functions/acquire_lock [roles/owner schemas/message_store functions/hash_64 functions/category] 2020-08-30T02:59:05Z Joseph Choe <joseph@josephchoe.com> # Function acquire_lock
+functions/stream_version [roles/owner schemas/message_store tables/messages] 2020-08-30T04:05:28Z Joseph Choe <joseph@josephchoe.com> # Function stream_version
+functions/write_message [roles/owner schemas/message_store tables/messages functions/acquire_lock functions/stream_version] 2020-08-30T04:37:44Z Joseph Choe <joseph@josephchoe.com> # Function write_message
+functions/get_category_messages [roles/owner schemas/message_store tables/messages types/message functions/category functions/is_category functions/cardinal_id] 2020-08-30T04:42:37Z Joseph Choe <joseph@josephchoe.com> # Function get_category_messages
+functions/get_stream_messages [roles/owner schemas/message_store tables/messages types/message functions/is_category] 2020-08-30T04:47:54Z Joseph Choe <joseph@josephchoe.com> # Function get_stream_messages
+functions/get_last_stream_message [roles/owner schemas/message_store tables/messages types/message] 2020-08-30T04:50:58Z Joseph Choe <joseph@josephchoe.com> # Function get_last_stream_message
+functions/message_store_version [roles/owner schemas/message_store] 2020-08-30T05:00:08Z Joseph Choe <joseph@josephchoe.com> # Function message_store_version
 indexes/messages_id [schemas/message_store tables/messages] 2020-08-30T05:15:22Z Joseph Choe <joseph@josephchoe.com> # Index messages_id
 indexes/messages_stream [schemas/message_store tables/messages] 2020-08-30T05:24:36Z Joseph Choe <joseph@josephchoe.com> # Index messages_stream
 indexes/messages_category [schemas/message_store tables/messages functions/category] 2020-08-30T05:28:13Z Joseph Choe <joseph@josephchoe.com> # Index messages_category
@@ -29,3 +29,10 @@ views/stream_type_summary [schemas/message_store tables/messages] 2020-08-30T05:
 views/type_stream_summary [schemas/message_store tables/messages] 2020-08-30T05:44:31Z Joseph Choe <joseph@josephchoe.com> # View type_stream_summary
 views/category_type_summary [schemas/message_store tables/messages functions/category] 2020-08-30T05:46:41Z Joseph Choe <joseph@josephchoe.com> # View category_type_summary
 views/type_category_summary [schemas/message_store tables/messages functions/category] 2020-08-30T05:50:00Z Joseph Choe <joseph@josephchoe.com> # View type_category_summary
+privileges/owner/schema [roles/owner schemas/message_store] 2020-09-17T12:00:58Z Joseph Choe <joseph@josephchoe.com> # Owner privileges for schema
+privileges/owner/table [roles/owner schemas/message_store tables/messages] 2020-09-17T12:06:51Z Joseph Choe <joseph@josephchoe.com> # Owner privileges for messages table
+privileges/owner/sequence [roles/owner schemas/message_store tables/messages] 2020-09-17T12:08:57Z Joseph Choe <joseph@josephchoe.com> # Owner privileges for messages sequence
+privileges/owner/views [roles/owner schemas/message_store views/stream_summary views/type_summary views/stream_type_summary views/type_stream_summary views/category_type_summary views/type_category_summary] 2020-09-17T12:25:28Z Joseph Choe <joseph@josephchoe.com> # Owner privileges for views
+privileges/message_store/schema [roles/message_store schemas/message_store] 2020-08-30T05:54:22Z Joseph Choe <joseph@josephchoe.com> # Message store privileges for schema
+privileges/message_store/functions [roles/message_store schemas/message_store functions/hash_64 functions/category functions/is_category functions/id functions/cardinal_id functions/acquire_lock functions/stream_version functions/write_message functions/get_category_messages functions/get_stream_messages functions/get_last_stream_message functions/message_store_version] 2020-08-30T06:07:32Z Joseph Choe <joseph@josephchoe.com> # Message store privileges for functions
+privileges/message_store/views [roles/message_store schemas/message_store views/stream_summary views/type_summary views/stream_type_summary views/type_stream_summary views/category_type_summary views/type_category_summary] 2020-08-30T06:14:10Z Joseph Choe <joseph@josephchoe.com> # Message store privileges for views

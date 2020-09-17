@@ -1,4 +1,5 @@
 -- Deploy database-message-store:functions/get_category_messages to pg
+-- requires: roles/owner
 -- requires: schemas/message_store
 -- requires: tables/messages
 -- requires: types/message
@@ -140,7 +141,9 @@ BEGIN
     get_category_messages.consumer_group_size::smallint;
 END;
 $$ LANGUAGE plpgsql
-VOLATILE;
+VOLATILE SECURITY DEFINER;
+
+ALTER FUNCTION message_store.get_category_messages(varchar, bigint, bigint, varchar, bigint, bigint, varchar) OWNER TO message_store_owner;
 
 REVOKE ALL ON FUNCTION message_store.get_category_messages(varchar, bigint, bigint, varchar, bigint, bigint, varchar) FROM PUBLIC;
 
