@@ -4,6 +4,7 @@
 
 roles/owner 2020-09-17T05:20:40Z Joseph Choe <joseph@josephchoe.com> # Owner role
 roles/reader 2020-10-31T08:34:05Z Joseph Choe <joseph@josephchoe.com> # Reader role
+roles/writer 2020-10-31T08:46:17Z Joseph Choe <joseph@josephchoe.com> # Writer role
 schemas/public 2020-08-29T12:43:42Z Joseph Choe <joseph@josephchoe.com> # Public schema removed
 schemas/message_store 2020-08-29T12:43:56Z Joseph Choe <joseph@josephchoe.com> # Message store schema
 extensions/pgcrypto [schemas/message_store] 2020-08-29T14:11:15Z Joseph Choe <joseph@josephchoe.com> # Extension pgcrypto
