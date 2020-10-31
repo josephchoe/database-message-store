@@ -37,3 +37,5 @@ privileges/owner/sequence [roles/owner schemas/message_store tables/messages] 20
 privileges/owner/views [roles/owner schemas/message_store views/stream_summary views/type_summary views/stream_type_summary views/type_stream_summary views/category_type_summary views/type_category_summary] 2020-09-17T12:25:28Z Joseph Choe <joseph@josephchoe.com> # Owner privileges for views
 privileges/reader/schema [roles/reader schemas/message_store] 2020-10-31T08:58:29Z Joseph Choe <joseph@josephchoe.com> # Reader privileges for schema
 privileges/reader/functions [roles/reader functions/get_category_messages functions/get_stream_messages functions/get_last_stream_message] 2020-10-31T08:43:22Z Joseph Choe <joseph@josephchoe.com> # Reader privileges for functions
+privileges/writer/schema [roles/writer schemas/message_store] 2020-10-31T09:02:17Z Joseph Choe <joseph@josephchoe.com> # Writer privileges for schema
+privileges/writer/functions [roles/writer functions/write_message] 2020-10-31T08:49:38Z Joseph Choe <joseph@josephchoe.com> # Writer privileges for functions
